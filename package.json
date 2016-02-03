@@ -1,0 +1,14 @@
+{
+  "name": "twitter-picbot",
+  "version": "1.0.0",
+  "dependencies": {
+    "client-oauth2": "1.0.0",
+    "cron": "1.1.0",
+    "request": "2.69.0",
+    "twitter": "1.2.5",
+    "yargs": "3.32.0"
+  },
+  "scripts": {
+    "start": "node app/index.js"
+  }
+}
