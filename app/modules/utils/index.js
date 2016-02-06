@@ -10,7 +10,7 @@ module.exports = {
    * @returns {*} random item fron the array.
    */
   getRandom(list) {
-    return list[Math.floor(Math.random() * (list.length - 1))];
+    return list[Math.round(Math.random() * (list.length - 1))];
   },
 
   /**

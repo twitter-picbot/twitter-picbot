@@ -1,3 +1,8 @@
+## 1.0.1
+
+- Fixed getRandom function
+- Temporary fixed scheduler
+
 # 1.0.0
 
 - Cron process.
