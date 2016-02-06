@@ -42,6 +42,20 @@ function main() {
   });
 }
 
-const job = new CronJob(INTERVAL, main);
+// TODO Fix cron
+// const job = new CronJob(INTERVAL, main);
+
+function wait20min(callback) {
+  setTimeout(callback, 1200000);
+}
+
+function recurse() {
+  main();
+  wait20min(() => {
+    wait20min(() => {
+      wait20min(recurse);
+    });
+  });
+}
 
 job.start();
