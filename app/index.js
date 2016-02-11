@@ -1,18 +1,19 @@
 'use strict';
 
-const CronJob = require('cron').CronJob;
+const cron = require('node-cron');
 const argv = require('yargs').argv;
 const path = require('path');
 
 const Client = require('./modules/client');
 const media = require('./modules/media');
+const logger = require('./modules/utils/logger');
 
 const KEYS = require(argv.keys || '../keys.json');
 const API_URL = 'https://upload.twitter.com/1.1/media/upload.json';
 const MEDIA_PATH = 'media/image';
 const PLUGINS_PATH = path.join(__dirname, '..', 'plugins');
 const QUERY = argv.query || 'cats';
-const INTERVAL = argv.interval || '0 0 * * * *';
+const INTERVAL = argv.interval || '0 * * * *';
 
 const client = new Client(KEYS);
 
@@ -21,6 +22,8 @@ const client = new Client(KEYS);
  */
 function main() {
   let sourceUrl;
+
+  logger.info('Starting process.');
 
   media.download(PLUGINS_PATH, MEDIA_PATH, QUERY)
   .then((data) => {
@@ -35,27 +38,11 @@ function main() {
     return client.post(data.media, sourceUrl);
   })
   .then((data) => {
-    console.info('Tweeted @', new Date().toISOString());
+    logger.info('Tweeted!');
   })
   .catch((data) => {
-    console.error('Oops', data.response.statusCode);
+    logger.error('Oops', data.response.statusCode);
   });
 }
 
-// TODO Fix cron
-// const job = new CronJob(INTERVAL, main);
-
-function wait20min(callback) {
-  setTimeout(callback, 1200000);
-}
-
-function recurse() {
-  main();
-  wait20min(() => {
-    wait20min(() => {
-      wait20min(recurse);
-    });
-  });
-}
-
-job.start();
+cron.schedule(INTERVAL, main);
