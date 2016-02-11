@@ -1,6 +1,12 @@
+# 1.1.0
+
+- Fixed cronjob with node-cron package
+- Added logger
+
 ## 1.0.1
 
 - Fixed getRandom function
+- Temporary fixed scheduler
 
 # 1.0.0
 
