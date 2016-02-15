@@ -1,6 +1,6 @@
 {
   "name": "twitter-picbot",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "dependencies": {
     "client-oauth2": "1.0.0",
     "loglevel": "1.4.0",
