@@ -1,3 +1,7 @@
+## 1.1.1
+
+- Fixed url and src
+
 # 1.1.0
 
 - Fixed cronjob with node-cron package

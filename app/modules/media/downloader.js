@@ -18,9 +18,9 @@ module.exports = function(pluginsPath, mediaPath, query) {
     plugin = utils.getRandom(pluginList);
 
     plugin.getSource(query).then((data) => {
-      utils.download(data.source, mediaPath, () => {
+      utils.download(data.url, mediaPath, () => {
         resolve({
-          url: data.url
+          url: data.source
         });
       });
     }).catch(reject);
