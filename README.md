@@ -55,7 +55,7 @@ You can pass following arguments to the bot:
 
 - **query**: the topic that the bot should post about. By default **cats**
 - **interval**: cron statement **"{seconds: 0-59} {minutes: 0-59} {hours: 0-23} {day-of-month: 1-31} {months: 0-11} {day-of-week: 0-6}"**.
- Based on [npm cron](https://www.npmjs.com/package/cron). By default every hour: **"0 0 \* \* \* \*"**.
+ Based on [node-cron](https://github.com/merencia/node-cron). By default every hour: **"0 0 \* \* \* \*"**.
 - **keys**: relative or absolute path from which to require **keys.json** file.
 
 # Plugins
