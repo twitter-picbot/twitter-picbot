@@ -1,3 +1,7 @@
+## 1.1.2
+
+- Fixed missing es6-polyfill for outdated lib loglevel-message-prefix
+
 ## 1.1.1
 
 - Fixed url and src
